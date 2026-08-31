@@ -1,4 +1,4 @@
-package emily.traits;
+package emily.model.traits;
 
 import java.util.Collections;
 import java.util.HashMap;

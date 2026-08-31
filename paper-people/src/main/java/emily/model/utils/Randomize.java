@@ -1,4 +1,4 @@
-package emily.utils;
+package emily.model.utils;
 
 import java.util.List;
 import java.util.Random;

@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class TraitIO {
+
+    private static String traitSelectMenu(String pronoun, String traitType) {
+        return """
+
+                --------------------------------------------------------
+                How do you want to determine %s %s?
+
+                --------------------------------------------------------
+
+                    1. Choose %s %s manually
+                    2. Randomize %s %s
+
+                --------------------------------------------------------
+                Please enter "1" or "2" to proceed
+
+                """.formatted(
+                pronoun,
+                traitType,
+                pronoun,
+                traitType,
+                pronoun,
+                traitType);
+    }
+
+    // User selects phenotype from printed list
+    private static String selectPhenotype(String selectionMenu, Scanner input, List<String> phenoList) {
+        System.out.println(selectionMenu);
+        for (String pheno : phenoList) {
+            System.out.println("- " + pheno);
+        }
+        String phenotype = input.nextLine();
+        return phenotype;
+    }
+
+    // to randomize or not to randomize
+    public static String getUserChoice(String pronoun, String traitType, String selectionMenu, Scanner input, List<String> phenoList) {
+        String trait;
+        System.out.println(traitSelectMenu(pronoun, traitType));
+        String choice = input.nextLine();
+        if (choice.equals("1")) {
+            trait = selectPhenotype(selectionMenu, input, phenoList)
+        // option 2 randomize
+        } else if (choice.equals("2")) {
+        }
+        return trait;
+    }
+}

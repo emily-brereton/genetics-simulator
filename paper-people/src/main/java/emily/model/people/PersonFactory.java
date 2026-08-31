@@ -25,8 +25,12 @@ public class PersonFactory {
         person.setFirstName(firstName);
         person.setLastName(lastName);
 
+        //fix io stuff
         Eyes eyes = new Eyes();
-        eyes = (Eyes) Trait.createTrait(isMale ? "his" : "her", "eye color", input, eyes, dad.getEyes().getGenotype(),
+        eyes = (Eyes) Trait.createTrait(io.getUserChoice(isMale ? "his" : "her", "eye color", eyes.getSelectionMenu(),)
+        
+        
+        dad.getEyes().getGenotype(),
                 mom.getEyes().getGenotype());
         System.out.println(firstName + " has " + eyes.getPhenotype() + " eyes (" + eyes.getGenotype() + ").");
         Hair hair = new Hair();

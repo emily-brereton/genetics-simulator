@@ -1,10 +1,12 @@
-package emily.traits;
+package emily.model.traits;
 
 import emily.Dashboard;
-import emily.genetics.GeneticsEngine;
+import emily.model.genetics.GeneticsEngine;
 
 import java.util.List;
 import java.util.Map;
+
+
 import java.util.Scanner;
 
 public abstract class Trait {
@@ -22,22 +24,38 @@ public abstract class Trait {
         this.phenotype = phenotype;
     }
 
-    public static Trait createTrait(String pronoun, String traitType, Scanner input, Trait trait, int dadGeno,
-            int momGeno) {
-        System.out.println(Dashboard.traitSelectMenu(pronoun, traitType));
-        String choice = input.nextLine();
+    // restructure
+    // public static Trait createTrait(String pronoun, String traitType, Scanner input, Trait trait, int dadGeno,
+    //         int momGeno) {
+    //     System.out.println(Dashboard.traitSelectMenu(pronoun, traitType));
+    //     String choice = input.nextLine();
 
-        // option 1 select manually
-        if (choice.equals("1")) {
-            trait.setPhenotype(Dashboard.selectPhenotype(trait.getSelectionMenu(), input, trait.getPhenotypes()));
-            trait.setGenotype(GeneticsEngine.generateGenotype(trait.getMap(), trait.getPhenotype()));
+    //     // option 1 select manually
+    //     if (choice.equals("1")) {
+    //         trait.setPhenotype(Dashboard.selectPhenotype(trait.getSelectionMenu(), input, trait.getPhenotypes()));
+    //         trait.setGenotype(GeneticsEngine.generateGenotype(trait.getMap(), trait.getPhenotype()));
 
-            // option 2 randomize
-        } else if (choice.equals("2")) {
+    //         // option 2 randomize
+    //     } else if (choice.equals("2")) {
+    //         trait = recombinate(trait, dadGeno, momGeno);
+    //     }
+    //     return trait;
+    // }
+
+    public static Trait createTrait(String userInput, Trait trait, int dadGeno, int momGeno){
+        if (userInput == null){
             trait = recombinate(trait, dadGeno, momGeno);
+        }
+        else {
+            trait.setPhenotype(userInput);
+            trait.setGenotype(GeneticsEngine.generateGenotype(trait.getMap(), trait.getPhenotype()));
         }
         return trait;
     }
+
+
+
+
 
     public static Trait recombinate(Trait trait, int dadGeno, int momGeno) {
         int geno = GeneticsEngine.randomGenotype(dadGeno, momGeno);

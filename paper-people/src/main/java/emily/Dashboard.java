@@ -33,28 +33,28 @@ public class Dashboard {
             --------------------------------------------------------
             """;
 
-    public static String traitSelectMenu(String pronoun, String traitType) {
-        return """
+    // public static String traitSelectMenu(String pronoun, String traitType) {
+    //     return """
 
-                --------------------------------------------------------
-                How do you want to determine %s %s?
+    //             --------------------------------------------------------
+    //             How do you want to determine %s %s?
 
-                --------------------------------------------------------
+    //             --------------------------------------------------------
 
-                    1. Choose %s %s manually
-                    2. Randomize %s %s
+    //                 1. Choose %s %s manually
+    //                 2. Randomize %s %s
 
-                --------------------------------------------------------
-                Please enter "1" or "2" to proceed
+    //             --------------------------------------------------------
+    //             Please enter "1" or "2" to proceed
 
-                """.formatted(
-                pronoun,
-                traitType,
-                pronoun,
-                traitType,
-                pronoun,
-                traitType);
-    }
+    //             """.formatted(
+    //             pronoun,
+    //             traitType,
+    //             pronoun,
+    //             traitType,
+    //             pronoun,
+    //             traitType);
+    // }
 
     public List<Male> getAllMales() {
         return allMales;
@@ -62,16 +62,6 @@ public class Dashboard {
 
     public List<Female> getAllFemales() {
         return allFemales;
-    }
-
-    // User selects phenotype from printed list
-    public static String selectPhenotype(String selectionMenu, Scanner input, List<String> phenoList) {
-        System.out.println(selectionMenu);
-        for (String pheno : phenoList) {
-            System.out.println("- " + pheno);
-        }
-        String phenotype = input.nextLine();
-        return phenotype;
     }
 
     // Randomized phenotype from list (user selects "R")
