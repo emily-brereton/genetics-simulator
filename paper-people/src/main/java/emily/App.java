@@ -1,11 +1,11 @@
 package emily;
 
 import java.util.Scanner;
-import emily.people.Female;
-import emily.people.Male;
-import emily.people.Person;
-import emily.people.PersonFactory;
-import emily.utils.Ancillary;
+import emily.model.people.Female;
+import emily.model.people.Male;
+import emily.model.people.Person;
+import emily.model.people.PersonFactory;
+import emily.model.utils.Ancillary;
 
 
 public class App {

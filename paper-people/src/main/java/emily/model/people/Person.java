@@ -1,11 +1,11 @@
-package emily.people;
+package emily.model.people;
 
 import java.util.Scanner;
 
-import emily.traits.Eyes;
-import emily.traits.Hair;
-import emily.utils.Ancillary;
-import emily.utils.Randomize;
+import emily.model.traits.Eyes;
+import emily.model.traits.Hair;
+import emily.model.utils.Ancillary;
+import emily.model.utils.Randomize;
 
 public abstract class Person {
     protected String firstName;

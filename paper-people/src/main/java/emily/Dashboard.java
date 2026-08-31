@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import emily.people.Female;
-import emily.people.Male;
-import emily.people.Person;
-import emily.utils.Randomize;
+import emily.model.people.Female;
+import emily.model.people.Male;
+import emily.model.people.Person;
+import emily.model.utils.Randomize;
 
 public class Dashboard {
 

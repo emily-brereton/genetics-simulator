@@ -1,4 +1,4 @@
-package emily.genetics;
+package emily.model.genetics;
 
 import java.util.HashMap;
 import java.util.Map;

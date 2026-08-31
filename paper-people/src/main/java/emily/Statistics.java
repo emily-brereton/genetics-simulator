@@ -2,7 +2,7 @@ package emily;
 
 import java.util.List;
 
-import emily.people.Person;
+import emily.model.people.Person;
 
 public class Statistics {
 

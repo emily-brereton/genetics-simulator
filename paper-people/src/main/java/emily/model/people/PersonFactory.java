@@ -1,10 +1,10 @@
-package emily.people;
+package emily.model.people;
 
 import java.util.Scanner;
-import emily.traits.Eyes;
-import emily.traits.Hair;
-import emily.traits.Trait;
-import emily.utils.Ancillary;
+import emily.model.traits.Eyes;
+import emily.model.traits.Hair;
+import emily.model.traits.Trait;
+import emily.model.utils.Ancillary;
 
 public class PersonFactory {
 

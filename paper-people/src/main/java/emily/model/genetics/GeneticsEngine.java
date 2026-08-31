@@ -1,4 +1,4 @@
-package emily.genetics;
+package emily.model.genetics;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import emily.utils.Randomize;
+import emily.model.utils.Randomize;
 
 public class GeneticsEngine {
 

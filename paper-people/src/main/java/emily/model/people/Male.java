@@ -1,7 +1,7 @@
-package emily.people;
+package emily.model.people;
 
-import emily.traits.Eyes;
-import emily.traits.Hair;
+import emily.model.traits.Eyes;
+import emily.model.traits.Hair;
 
 public class Male extends Person {
 
