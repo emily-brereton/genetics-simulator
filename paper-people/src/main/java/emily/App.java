@@ -7,9 +7,6 @@ import emily.people.Person;
 import emily.people.PersonFactory;
 import emily.utils.Ancillary;
 
-/**
- * Hello world!
- */
 
 public class App {
 
@@ -126,7 +123,7 @@ public class App {
                 }
 
                 default -> {
-                    System.out.println("Invalid entry. Please enter a number between 1 and 4.");
+                    System.out.println("Invalid entry. Please enter a number between 1 and 5.");
                 }
             }
         }

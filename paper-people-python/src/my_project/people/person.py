@@ -1,5 +1,8 @@
-from traits.trait_functions import Trait
-from people.name_data import MALE_NAMES, FEMALE_NAMES, SURNAMES, WEIGHTS
+# need __eq__ method for equality?
+# if __eq__ also need __hash__
+
+from traits.trait import Trait
+from .name_data import MALE_NAMES, FEMALE_NAMES, SURNAMES, WEIGHTS
 from random import choice, choices
 
 

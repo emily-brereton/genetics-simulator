@@ -145,8 +145,8 @@ public abstract class Person {
         return "{ name: " + firstName + " " + lastName +
                 ", eyes: " + eyes.getPhenotype() + " (" + eyes.getGenotype() + ")" +
                 ", hair: " + hair.getPhenotype() + " (" + hair.getGenotype() + ")" +
-                ", Dad: " + (dad != null ? dad.getFirstName() + " " + dad.getLastName() : "Unknown") +
-                ", Mom: " + (mom != null ? mom.getFirstName() + " " + mom.getLastName() : "Unknown") +
+                ", Dad: " + dad.getFirstName() + " " + dad.getLastName() +
+                ", Mom: " + mom.getFirstName() + " " + mom.getLastName() +
                 " }";
     }
 }

@@ -46,7 +46,7 @@ public class Hair extends Trait {
         int whiteHairGenotype = 222;
 
         arrayToHashMap(blackHairGenotypes, hairColorMap, "black");
-        arrayToHashMap(blackBrownHairGenotypes, hairColorMap, "black-brown");
+        arrayToHashMap(blackBrownHairGenotypes, hairColorMap, "black brown");
         arrayToHashMap(darkBrownHairGenotypes, hairColorMap, "dark brown");
         arrayToHashMap(brownHairGenotypes, hairColorMap, "brown");
         arrayToHashMap(lightBrownHairGenotypes, hairColorMap, "light brown");

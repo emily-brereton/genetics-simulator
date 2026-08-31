@@ -57,7 +57,7 @@ public class PersonFactory {
         System.out.println(name + " has " + eyes.getPhenotype() + " eyes (" + eyes.getGenotype() + ").");
         Hair hair = new Hair();
         hair = (Hair) Trait.recombinate(hair, dad.getHair().getGenotype(), mom.getHair().getGenotype());
-        System.out.println(name + " has " + eyes.getPhenotype() + " eyes (" + eyes.getGenotype() + ").");
+        System.out.println(name + " has " + hair.getPhenotype() + " eyes (" + hair.getGenotype() + ").");
         person.setEyes(eyes);
         person.setHair(hair);
 
