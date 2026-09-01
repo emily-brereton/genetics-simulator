@@ -1,13 +1,10 @@
 package emily.model.traits;
 
-import emily.Dashboard;
 import emily.model.genetics.GeneticsEngine;
 
 import java.util.List;
 import java.util.Map;
 
-
-import java.util.Scanner;
 
 public abstract class Trait {
 
@@ -52,9 +49,6 @@ public abstract class Trait {
         }
         return trait;
     }
-
-
-
 
 
     public static Trait recombinate(Trait trait, int dadGeno, int momGeno) {

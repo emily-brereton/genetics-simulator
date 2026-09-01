@@ -6,15 +6,19 @@ import emily.model.traits.Hair;
 import emily.model.traits.Trait;
 import emily.model.utils.Ancillary;
 
+import emily.io.TraitPrompter;
+
 public class PersonFactory {
 
     public static Person createStarterPerson(
-            Scanner input,
+            //Scanner input,
             String firstName,
             String lastName,
-            boolean isMale) {
+            boolean isMale,
+            String eyesUserChoice,
+            String hairUserChoice) {
 
-        Ancillary.pause(input, "Creating person...");
+        //Ancillary.pause(input, "Creating person...");
 
         Male dad = new Male();
         Female mom = new Female();
@@ -27,21 +31,34 @@ public class PersonFactory {
 
         //fix io stuff
         Eyes eyes = new Eyes();
-        eyes = (Eyes) Trait.createTrait(io.getUserChoice(isMale ? "his" : "her", "eye color", eyes.getSelectionMenu(),)
-        
-        
-        dad.getEyes().getGenotype(),
-                mom.getEyes().getGenotype());
+        eyes = (Eyes) Trait.createTrait(eyesUserChoice, eyes, dad.eyes.getGenotype(), mom.eyes.getGenotype());
         System.out.println(firstName + " has " + eyes.getPhenotype() + " eyes (" + eyes.getGenotype() + ").");
+
         Hair hair = new Hair();
-        hair = (Hair) Trait.createTrait(isMale ? "his" : "her", "hair color", input, hair, dad.getHair().getGenotype(),
-                mom.getHair().getGenotype());
+        hair = (Hair) Trait.createTrait(hairUserChoice, hair, dad.hair.getGenotype(), mom.hair.getGenotype());
         System.out.println(firstName + " has " + hair.getPhenotype() + " hair (" + hair.getGenotype() + ").");
         person.setEyes(eyes);
         person.setHair(hair);
 
+
+
+        //eyes = (Eyes) Trait.createTrait(getUserChoice(isMale ? "his" : "her", "eye color", eyes.getSelectionMenu(),eyes.getPhenotypes())
+        // dad.getEyes().getGenotype(),
+        //         mom.getEyes().getGenotype());
+        // System.out.println(firstName + " has " + eyes.getPhenotype() + " eyes (" + eyes.getGenotype() + ").");
+        // Hair hair = new Hair();
+        // hair = (Hair) Trait.createTrait(isMale ? "his" : "her", "hair color", input, hair, dad.getHair().getGenotype(),
+        //         mom.getHair().getGenotype());
+        // System.out.println(firstName + " has " + hair.getPhenotype() + " hair (" + hair.getGenotype() + ").");
+        // person.setEyes(eyes);
+        // person.setHair(hair);
+
         return person;
     }
+
+
+
+
 
     public static Person createBaby(
             Scanner input,
@@ -68,11 +85,13 @@ public class PersonFactory {
         return person;
     }
 
-    public static Male createMan(Scanner input) {
-        return (Male) createStarterPerson(input, "Adam", "Paper", true);
+    public static Male createMan() {
+        String eyesUserChoice = TraitPrompter.getUserChoice("him", "eye color", eyes.getSelectionMenu(), eyes.getPhenotypes());
+        String hairUserChoice = TraitPrompter.getUserChoice("him", "hair color", Hair.getSelectionMenu(), Hair.getPhenotypes());
+        return (Male) createStarterPerson("Adam", "Paper", true, eyesUserChoice, hairUserChoice);
     }
 
     public static Female createWoman(Scanner input) {
-        return (Female) createStarterPerson(input, "Eve", "Paper", false);
+        return (Female) createStarterPerson("Eve", "Paper", false);
     }
 }

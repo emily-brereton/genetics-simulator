@@ -1,6 +1,15 @@
+package emily.io;
+
+import java.util.List;
 import java.util.Scanner;
 
-public class TraitIO {
+public class TraitPrompter {
+
+    private final Scanner input;
+
+    TraitPrompter(Scanner input){
+        this.input = input;
+    }
 
     private static String traitSelectMenu(String pronoun, String traitType) {
         return """
@@ -26,7 +35,7 @@ public class TraitIO {
     }
 
     // User selects phenotype from printed list
-    private static String selectPhenotype(String selectionMenu, Scanner input, List<String> phenoList) {
+    private String selectPhenotype(String selectionMenu, List<String> phenoList) {
         System.out.println(selectionMenu);
         for (String pheno : phenoList) {
             System.out.println("- " + pheno);
@@ -36,15 +45,13 @@ public class TraitIO {
     }
 
     // to randomize or not to randomize
-    public static String getUserChoice(String pronoun, String traitType, String selectionMenu, Scanner input, List<String> phenoList) {
-        String trait;
+    public String getUserChoice(String pronoun, String traitType, String selectionMenu, List<String> phenoList) {
+        String userChoice = null;
         System.out.println(traitSelectMenu(pronoun, traitType));
         String choice = input.nextLine();
         if (choice.equals("1")) {
-            trait = selectPhenotype(selectionMenu, input, phenoList)
-        // option 2 randomize
-        } else if (choice.equals("2")) {
+            userChoice = selectPhenotype(selectionMenu, phenoList);
         }
-        return trait;
+        return userChoice;
     }
 }
