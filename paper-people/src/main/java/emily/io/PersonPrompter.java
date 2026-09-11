@@ -16,7 +16,7 @@ public class PersonPrompter {
         this.traitPrompter = new TraitPrompter(input);
     }
 
-    public Male createMan() {
+    public Male createMan(String firstName, String lastName) {
         // Ancillary.pause(input, "Creating person...");
 
         Eyes eyesTemplate = new Eyes();
@@ -27,10 +27,10 @@ public class PersonPrompter {
         String hairChoice = traitPrompter.getUserChoice("his", "hair color",
                 hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
 
-        return PersonFactory.createAdam(eyesChoice, hairChoice);
+        return PersonFactory.createMale(firstName, lastName, eyesChoice, hairChoice);
     }
 
-    public Female createWoman() {
+    public Female createWoman(String firstName, String lastName) {
         // Ancillary.pause(input, "Creating person...");
 
         Eyes eyesTemplate = new Eyes();
@@ -41,7 +41,7 @@ public class PersonPrompter {
         String hairChoice = traitPrompter.getUserChoice("her", "hair color",
                 hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
 
-        return PersonFactory.createEve(eyesChoice, hairChoice);
+        return PersonFactory.createFemale(firstName, lastName, eyesChoice, hairChoice);
     }
 
 

@@ -30,14 +30,14 @@ public class App {
 
         System.out.println("First, let's start with Adam.");
         System.out.println("This is Adam Paper. He needs DNA.");
-        Male adam = personPrompter.createMan();
+        Male adam = personPrompter.createMan("Adam","Paper");
         Dashboard.savePerson(adam);
 
         Ancillary.pause(input, "Press Enter to continue...");
 
         System.out.println("Now, let's create Eve.");
         System.out.println("This is Eve Paper. She also needs DNA.");
-        Female eve = personPrompter.createWoman();
+        Female eve = personPrompter.createWoman("Eve","Paper");
         Dashboard.savePerson(eve);
 
         Ancillary.pause(input, "Press Enter to continue...");
@@ -72,13 +72,7 @@ public class App {
                     String firstName = personPrompter.namePrompter(input, isMale ? dad.getMaleNames() : mom.getFemaleNames(),"Give " + pronoun + " a first name, or enter \"R\" to randomize: ");
                     String lastName = personPrompter.namePrompter(input, dad.getLastNames(), "Give " + firstName + " a last name, or enter \"R\" to randomize: ");
 
-
-
-                    Person person = PersonFactory.createStarterPerson(
-                            input,
-                            Person.makeFirstName(input, isMale, new Male(), new Female()),
-                            Person.makeLastName(input),
-                            isMale);
+                    Person person = isMale ? personPrompter.createMan(firstName, lastName) : personPrompter.createWoman(firstName, lastName);
 
                     Person.printPerson(person);
                     Ancillary.pause(input, "Press Enter to continue...");

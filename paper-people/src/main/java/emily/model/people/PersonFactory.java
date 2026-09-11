@@ -79,11 +79,11 @@ public class PersonFactory {
         return person;
     }
 
-    public static Male createAdam(String eyesUserChoice, String hairUserChoice) {
-        return (Male) createStarterPerson("Adam", "Paper", true, eyesUserChoice, hairUserChoice);
+    public static Male createMale(String firstName, String lastName, String eyesUserChoice, String hairUserChoice) {
+        return (Male) createStarterPerson(firstName, lastName, true, eyesUserChoice, hairUserChoice);
     }
 
-    public static Female createEve(String eyesUserChoice, String hairUserChoice) {
-        return (Female) createStarterPerson("Eve", "Paper", false, eyesUserChoice, hairUserChoice);
+    public static Female createFemale(String firstName, String lastName, String eyesUserChoice, String hairUserChoice) {
+        return (Female) createStarterPerson(firstName, lastName, false, eyesUserChoice, hairUserChoice);
     }
 }
