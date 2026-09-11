@@ -52,27 +52,38 @@ public class App {
 
             switch (choice) {
                 case "1" -> {
-                    // boolean isMale = Person.generateIsMale(input);
 
-                    // String messageA = "default message.";
-                    // if (isMale) {
-                    //     messageA = "Your person is a male.";
-                    // } else {
-                    //     messageA = "Your person is a female.";
-                    // }
+                    Male dad = new Male();
+                    Female mom = new Female();
 
-                    // System.out.println(messageA);
+                    boolean isMale = personPrompter.isMale(personPrompter.isMalePrompter(input));
 
-                    // Person person = PersonFactory.createStarterPerson(
-                    //         input,
-                    //         Person.makeFirstName(input, isMale, new Male(), new Female()),
-                    //         Person.makeLastName(input),
-                    //         isMale);
+                    String messageA = "default message.";
+                    String pronoun = "";
+                    if (isMale) {
+                        messageA = "Your person is a male.";
+                        pronoun = "his";
+                    } else {
+                        messageA = "Your person is a female.";
+                        pronoun = "her";
+                    }
+                    System.out.println(messageA);
 
-                    // Person.printPerson(person);
-                    // Ancillary.pause(input, "Press Enter to continue...");
+                    String firstName = personPrompter.namePrompter(input, isMale ? dad.getMaleNames() : mom.getFemaleNames(),"Give " + pronoun + " a first name, or enter \"R\" to randomize: ");
+                    String lastName = personPrompter.namePrompter(input, dad.getLastNames(), "Give " + firstName + " a last name, or enter \"R\" to randomize: ");
 
-                    // Dashboard.addToPopulation(person, input);
+
+
+                    Person person = PersonFactory.createStarterPerson(
+                            input,
+                            Person.makeFirstName(input, isMale, new Male(), new Female()),
+                            Person.makeLastName(input),
+                            isMale);
+
+                    Person.printPerson(person);
+                    Ancillary.pause(input, "Press Enter to continue...");
+
+                    Dashboard.addToPopulation(person, input);
                 }
 
                 case "2" -> {
