@@ -7,16 +7,20 @@ import emily.model.people.Person;
 import emily.model.people.PersonFactory;
 import emily.model.utils.Ancillary;
 
+import emily.io.PersonPrompter;
+
 
 public class App {
 
     public static void main(String[] args) {
 
         Dashboard dashboard = new Dashboard();
+        Scanner input = new Scanner(System.in);
+        PersonPrompter personPrompter = new PersonPrompter(input);
 
         // title menu
         System.out.println(dashboard.title);
-        Scanner input = new Scanner(System.in);
+        
         Ancillary.pause(input, "Press Enter to continue...");
         String choice = "";
 
@@ -26,14 +30,14 @@ public class App {
 
         System.out.println("First, let's start with Adam.");
         System.out.println("This is Adam Paper. He needs DNA.");
-        Male adam = PersonFactory.createMan(input);
+        Male adam = personPrompter.createMan();
         Dashboard.savePerson(adam);
 
         Ancillary.pause(input, "Press Enter to continue...");
 
         System.out.println("Now, let's create Eve.");
         System.out.println("This is Eve Paper. She also needs DNA.");
-        Female eve = PersonFactory.createWoman(input);
+        Female eve = personPrompter.createWoman();
         Dashboard.savePerson(eve);
 
         Ancillary.pause(input, "Press Enter to continue...");
@@ -48,27 +52,27 @@ public class App {
 
             switch (choice) {
                 case "1" -> {
-                    boolean isMale = Person.generateIsMale(input);
+                    // boolean isMale = Person.generateIsMale(input);
 
-                    String messageA = "default message.";
-                    if (isMale) {
-                        messageA = "Your person is a male.";
-                    } else {
-                        messageA = "Your person is a female.";
-                    }
+                    // String messageA = "default message.";
+                    // if (isMale) {
+                    //     messageA = "Your person is a male.";
+                    // } else {
+                    //     messageA = "Your person is a female.";
+                    // }
 
-                    System.out.println(messageA);
+                    // System.out.println(messageA);
 
-                    Person person = PersonFactory.createStarterPerson(
-                            input,
-                            Person.makeFirstName(input, isMale, new Male(), new Female()),
-                            Person.makeLastName(input),
-                            isMale);
+                    // Person person = PersonFactory.createStarterPerson(
+                    //         input,
+                    //         Person.makeFirstName(input, isMale, new Male(), new Female()),
+                    //         Person.makeLastName(input),
+                    //         isMale);
 
-                    Person.printPerson(person);
-                    Ancillary.pause(input, "Press Enter to continue...");
+                    // Person.printPerson(person);
+                    // Ancillary.pause(input, "Press Enter to continue...");
 
-                    Dashboard.addToPopulation(person, input);
+                    // Dashboard.addToPopulation(person, input);
                 }
 
                 case "2" -> {

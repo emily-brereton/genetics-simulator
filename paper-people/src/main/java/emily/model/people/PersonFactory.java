@@ -4,9 +4,6 @@ import java.util.Scanner;
 import emily.model.traits.Eyes;
 import emily.model.traits.Hair;
 import emily.model.traits.Trait;
-import emily.model.utils.Ancillary;
-
-import emily.io.TraitPrompter;
 
 public class PersonFactory {
 
@@ -17,8 +14,6 @@ public class PersonFactory {
             boolean isMale,
             String eyesUserChoice,
             String hairUserChoice) {
-
-        //Ancillary.pause(input, "Creating person...");
 
         Male dad = new Male();
         Female mom = new Female();
@@ -59,7 +54,6 @@ public class PersonFactory {
 
 
 
-
     public static Person createBaby(
             Scanner input,
             Male dad,
@@ -85,13 +79,11 @@ public class PersonFactory {
         return person;
     }
 
-    public static Male createMan() {
-        String eyesUserChoice = TraitPrompter.getUserChoice("him", "eye color", eyes.getSelectionMenu(), eyes.getPhenotypes());
-        String hairUserChoice = TraitPrompter.getUserChoice("him", "hair color", Hair.getSelectionMenu(), Hair.getPhenotypes());
+    public static Male createAdam(String eyesUserChoice, String hairUserChoice) {
         return (Male) createStarterPerson("Adam", "Paper", true, eyesUserChoice, hairUserChoice);
     }
 
-    public static Female createWoman(Scanner input) {
-        return (Female) createStarterPerson("Eve", "Paper", false);
+    public static Female createEve(String eyesUserChoice, String hairUserChoice) {
+        return (Female) createStarterPerson("Eve", "Paper", false, eyesUserChoice, hairUserChoice);
     }
 }
