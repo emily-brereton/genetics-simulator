@@ -46,7 +46,7 @@ public class ConsolePrompter <T>{
         String selection = "";
         while (!options.contains(selection)){
             System.out.println(prompt);
-            selection = input.nextLine();
+            selection = input.nextLine().toUpperCase();
         }
         return selection;
     }
