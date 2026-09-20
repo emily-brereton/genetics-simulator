@@ -43,18 +43,13 @@ public class TraitPrompter {
         String phenotype = "";
         String answer = consolePrompter.askSet(traitSelectMenu(pronoun, traitType), options);
         if (answer.equals("1")) {
-            phenotype = selectPhenotype(selectionMenu, phenoList);
+            // not validated
+            phenotype = consolePrompter.selectOption(selectionMenu, phenoList);
         }
         else {
             phenotype = Randomize.random(phenoList);
         }
         return phenotype;
-    }
-
-
-    // not validated
-    public String selectPhenotype(String selectionMenu, List<String> phenoList) {
-        return consolePrompter.selectOption(selectionMenu, phenoList);
     }
 
 
