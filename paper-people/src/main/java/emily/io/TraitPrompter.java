@@ -1,14 +1,19 @@
 package emily.io;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Set;
+
+import emily.model.utils.Randomize;
 
 public class TraitPrompter {
 
-    private final Scanner input;
+    private final ConsolePrompter <String> consolePrompter;
+    private final HashSet<String> options = new HashSet<>(Set.of("1","2"));
+    
 
-    TraitPrompter(Scanner input){
-        this.input = input;
+    TraitPrompter(ConsolePrompter <String> consolePrompter){
+        this.consolePrompter = consolePrompter;
     }
 
     private static String traitSelectMenu(String pronoun, String traitType) {
@@ -34,24 +39,34 @@ public class TraitPrompter {
                 traitType);
     }
 
-    // User selects phenotype from printed list
-    private String selectPhenotype(String selectionMenu, List<String> phenoList) {
-        System.out.println(selectionMenu);
-        for (String pheno : phenoList) {
-            System.out.println("- " + pheno);
+    public String generatePhenotype(String pronoun, String traitType, String selectionMenu, List<String> phenoList){
+        String phenotype = "";
+        String answer = consolePrompter.askSet(traitSelectMenu(pronoun, traitType), options);
+        if (answer.equals("1")) {
+            phenotype = selectPhenotype(selectionMenu, phenoList);
         }
-        String phenotype = input.nextLine();
+        else {
+            phenotype = Randomize.random(phenoList);
+        }
         return phenotype;
     }
 
-    // to randomize or not to randomize
-    public String getUserChoice(String pronoun, String traitType, String selectionMenu, List<String> phenoList) {
-        String userChoice = null;
-        System.out.println(traitSelectMenu(pronoun, traitType));
-        String choice = input.nextLine();
-        if (choice.equals("1")) {
-            userChoice = selectPhenotype(selectionMenu, phenoList);
-        }
-        return userChoice;
+
+    // not validated
+    public String selectPhenotype(String selectionMenu, List<String> phenoList) {
+        return consolePrompter.selectOption(selectionMenu, phenoList);
     }
+
+
+
+    // // to randomize or not to randomize
+    // public String getUserChoice(String pronoun, String traitType, String selectionMenu, List<String> phenoList) {
+    //     String userChoice = null;
+    //     System.out.println(traitSelectMenu(pronoun, traitType));
+    //     String choice = input.nextLine();
+    //     if (choice.equals("1")) {
+    //         userChoice = selectPhenotype(selectionMenu, phenoList);
+    //     }
+    //     return userChoice;
+    // }
 }
