@@ -3,7 +3,7 @@ package emily.io;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.Set;
 
 import emily.model.utils.Randomize;
 
@@ -42,7 +42,7 @@ public class ConsolePrompter <T>{
     }
 
 
-    public String askSet(String prompt, HashSet<String> options){
+    public String askSet(String prompt, Set<String> options){
         String selection = "";
         while (!options.contains(selection)){
             System.out.println(prompt);

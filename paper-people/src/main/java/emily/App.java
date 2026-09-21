@@ -14,9 +14,10 @@ public class App {
 
     public static void main(String[] args) {
 
+        // set up variables
         Dashboard dashboard = new Dashboard();
         Scanner input = new Scanner(System.in);
-        PersonPrompter personPrompter = new PersonPrompter(input);
+        PersonPrompter personPrompter = new PersonPrompter();
 
         // title menu
         System.out.println(dashboard.title);

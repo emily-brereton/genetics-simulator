@@ -8,7 +8,7 @@ import emily.model.utils.Randomize;
 
 public class TraitPrompter {
 
-    private final ConsolePrompter <String> consolePrompter;
+    protected final ConsolePrompter <String> consolePrompter;
     private final HashSet<String> options = new HashSet<>(Set.of("1","2"));
     
 

@@ -33,29 +33,6 @@ public class Dashboard {
             --------------------------------------------------------
             """;
 
-    // public static String traitSelectMenu(String pronoun, String traitType) {
-    //     return """
-
-    //             --------------------------------------------------------
-    //             How do you want to determine %s %s?
-
-    //             --------------------------------------------------------
-
-    //                 1. Choose %s %s manually
-    //                 2. Randomize %s %s
-
-    //             --------------------------------------------------------
-    //             Please enter "1" or "2" to proceed
-
-    //             """.formatted(
-    //             pronoun,
-    //             traitType,
-    //             pronoun,
-    //             traitType,
-    //             pronoun,
-    //             traitType);
-    // }
-
     public List<Male> getAllMales() {
         return allMales;
     }
