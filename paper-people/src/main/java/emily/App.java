@@ -6,8 +6,9 @@ import emily.model.people.Male;
 import emily.model.people.Person;
 import emily.model.people.PersonFactory;
 import emily.model.utils.Ancillary;
-
+import emily.io.ConsolePrompter;
 import emily.io.PersonPrompter;
+import emily.io.TraitPrompter;
 
 
 public class App {
@@ -17,7 +18,9 @@ public class App {
         // set up variables
         Dashboard dashboard = new Dashboard();
         Scanner input = new Scanner(System.in);
-        PersonPrompter personPrompter = new PersonPrompter();
+        ConsolePrompter<String> consolePrompter = new ConsolePrompter<String>(input);
+        TraitPrompter traitPrompter = new TraitPrompter(consolePrompter);
+        PersonPrompter personPrompter = new PersonPrompter(traitPrompter);
 
         // title menu
         System.out.println(dashboard.title);
@@ -57,7 +60,7 @@ public class App {
                     Male dad = new Male();
                     Female mom = new Female();
 
-                    boolean isMale = personPrompter.isMale(personPrompter.isMalePrompter(input));
+                    boolean isMale = personPrompter.isMalePrompter();
 
                     String messageA = "default message.";
                     String pronoun = "";
@@ -70,9 +73,15 @@ public class App {
                     }
                     System.out.println(messageA);
 
-                    String firstName = personPrompter.namePrompter(input, isMale ? dad.getMaleNames() : mom.getFemaleNames(),"Give " + pronoun + " a first name, or enter \"R\" to randomize: ");
-                    String lastName = personPrompter.namePrompter(input, dad.getLastNames(), "Give " + firstName + " a last name, or enter \"R\" to randomize: ");
+                    // first name
+                    String prompt = "What should " + pronoun + " name be? Type a first name, or enter \"R\" to randomize: ";
+                    String firstName = personPrompter.name(prompt, isMale ? dad.getMaleNames() : mom.getFemaleNames());
 
+                    // last name
+                    prompt = "Give " + firstName + " a last name, or enter \"R\" to randomize: ";
+                    String lastName = personPrompter.name(prompt, dad.getLastNames());
+
+                    // create person
                     Person person = isMale ? personPrompter.createMan(firstName, lastName) : personPrompter.createWoman(firstName, lastName);
 
                     Person.printPerson(person);
@@ -104,7 +113,6 @@ public class App {
                 }
 
                 case "3" -> {
-                    // need to make this print better
                     System.out.println("Here is your current population:");
 
                     System.out.println("""

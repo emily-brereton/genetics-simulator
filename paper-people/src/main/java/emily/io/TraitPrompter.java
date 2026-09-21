@@ -12,7 +12,7 @@ public class TraitPrompter {
     private final HashSet<String> options = new HashSet<>(Set.of("1","2"));
     
 
-    TraitPrompter(ConsolePrompter <String> consolePrompter){
+    public TraitPrompter(ConsolePrompter <String> consolePrompter){
         this.consolePrompter = consolePrompter;
     }
 

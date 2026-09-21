@@ -37,8 +37,8 @@ public class PersonPrompter {
         return PersonFactory.createFemale(firstName, lastName, eyesChoice, hairChoice);
     }
 
-    public String name(String prompt, List<String> options){
-        String name = traitPrompter.consolePrompter.askText(prompt, options);
+    public String name(String prompt, String[] options){
+        String name = traitPrompter.consolePrompter.askArray(prompt, options);
         name = Ancillary.formatName(name);
         return name;
     }

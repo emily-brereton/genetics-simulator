@@ -1,6 +1,6 @@
 package emily.io;
 
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -8,14 +8,9 @@ import java.util.Set;
 import emily.model.utils.Randomize;
 
 public class ConsolePrompter <T>{
-
-// selectThing(prompt, List<T> options) — generic, covers trait phenotypes, parent selection, menu selection.
-// DID NOT DO YET askValidatedChoice(prompt, Set<String> validAnswers) — covers isMale (and honestly, probably the "manual or random" 1-vs-2 decision too, once you notice that's just a 2-item version of the same shape).
-// askFreeTextOrRandom(prompt, List<String> randomPool) — covers name.
-
     private final Scanner input;
 
-    ConsolePrompter(Scanner input){
+    public ConsolePrompter(Scanner input){
         this.input = input;
     }
 
@@ -45,6 +40,15 @@ public class ConsolePrompter <T>{
     public String askSet(String prompt, Set<String> options){
         String selection = "";
         while (!options.contains(selection)){
+            System.out.println(prompt);
+            selection = input.nextLine().toUpperCase();
+        }
+        return selection;
+    }
+
+    public String askArray(String prompt, String[] options){
+        String selection = "";
+        while (!Arrays.asList(options).contains(selection)){
             System.out.println(prompt);
             selection = input.nextLine().toUpperCase();
         }
