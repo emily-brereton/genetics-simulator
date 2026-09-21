@@ -51,17 +51,4 @@ public class TraitPrompter {
         }
         return phenotype;
     }
-
-
-
-    // // to randomize or not to randomize
-    // public String getUserChoice(String pronoun, String traitType, String selectionMenu, List<String> phenoList) {
-    //     String userChoice = null;
-    //     System.out.println(traitSelectMenu(pronoun, traitType));
-    //     String choice = input.nextLine();
-    //     if (choice.equals("1")) {
-    //         userChoice = selectPhenotype(selectionMenu, phenoList);
-    //     }
-    //     return userChoice;
-    // }
 }

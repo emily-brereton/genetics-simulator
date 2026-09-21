@@ -8,7 +8,6 @@ import emily.model.traits.Trait;
 public class PersonFactory {
 
     public static Person createStarterPerson(
-            //Scanner input,
             String firstName,
             String lastName,
             boolean isMale,

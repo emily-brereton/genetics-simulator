@@ -12,37 +12,31 @@ import emily.model.utils.Randomize;
 public class PersonPrompter {
     private final TraitPrompter traitPrompter;
 
-    public PersonPrompter(Scanner input) {
-        this.traitPrompter = new TraitPrompter(input);
+    public PersonPrompter(TraitPrompter traitPrompter) {
+        this.traitPrompter = traitPrompter;
     }
 
     public Male createMan(String firstName, String lastName) {
-        // Ancillary.pause(input, "Creating person...");
-
         Eyes eyesTemplate = new Eyes();
         Hair hairTemplate = new Hair();
 
-        String eyesChoice = traitPrompter.getUserChoice("his", "eye color",
-                eyesTemplate.getSelectionMenu(), eyesTemplate.getPhenotypes());
-        String hairChoice = traitPrompter.getUserChoice("his", "hair color",
-                hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
+        String eyesChoice = traitPrompter.generatePhenotype("his", "eye color", eyesTemplate.getSelectionMenu(), eyesTemplate.getPhenotypes());
+        String hairChoice = traitPrompter.generatePhenotype("his", "hair color", hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
 
         return PersonFactory.createMale(firstName, lastName, eyesChoice, hairChoice);
     }
 
     public Female createWoman(String firstName, String lastName) {
-        // Ancillary.pause(input, "Creating person...");
-
         Eyes eyesTemplate = new Eyes();
         Hair hairTemplate = new Hair();
 
-        String eyesChoice = traitPrompter.getUserChoice("her", "eye color",
-                eyesTemplate.getSelectionMenu(), eyesTemplate.getPhenotypes());
-        String hairChoice = traitPrompter.getUserChoice("her", "hair color",
-                hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
+        String eyesChoice = traitPrompter.generatePhenotype("her", "eye color", eyesTemplate.getSelectionMenu(), eyesTemplate.getPhenotypes());
+        String hairChoice = traitPrompter.generatePhenotype("her", "hair color", hairTemplate.getSelectionMenu(), hairTemplate.getPhenotypes());
 
         return PersonFactory.createFemale(firstName, lastName, eyesChoice, hairChoice);
     }
+
+
 
 
     // only method needed for name?
