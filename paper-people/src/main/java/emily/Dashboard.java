@@ -48,6 +48,7 @@ public class Dashboard {
     }
 
     // choose a parent from population list
+    // move to PersonPrompter
     public static Person selectParent(String type, List<? extends Person> parentList, Scanner input) {
         System.out.println("Select a " + type + " from the following list:");
         int count = parentList.size();

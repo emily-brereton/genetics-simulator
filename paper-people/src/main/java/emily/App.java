@@ -91,6 +91,7 @@ public class App {
                 }
 
                 case "2" -> {
+                    // person prompter?
                     System.out.println("Are you ready to have a baby?");
                     Male dad = (Male) Dashboard.selectParent("dad", dashboard.getAllMales(), input);
                     Female mom = (Female) Dashboard.selectParent("mom", dashboard.getAllFemales(), input);
@@ -105,6 +106,7 @@ public class App {
                         System.out.println("Congratulations, it's a girl! ");
                     }
 
+                    // person prompter
                     Person baby = PersonFactory.createBaby(input, dad, mom,
                             Person.makeFirstName(input, isMale, dad, mom), isMale);
                     Person.printPerson(baby);

@@ -1,9 +1,11 @@
 package emily.io;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 import emily.model.people.Male;
+import emily.model.people.Person;
 import emily.model.people.Female;
 import emily.model.people.PersonFactory;
 import emily.model.traits.Eyes;
@@ -36,6 +38,57 @@ public class PersonPrompter {
 
         return PersonFactory.createFemale(firstName, lastName, eyesChoice, hairChoice);
     }
+
+    
+
+    public Person createBaby(mom, dad)
+
+
+
+
+    public Person selectParent(List<Person> potentialParents) {
+        
+
+    }
+
+    public String selectOption(String prompt, List<T> options) {
+        System.out.println(prompt);
+        for (T item : options) {
+            System.out.println(item);
+        }
+        String selection = input.nextLine();
+        return selection;
+    }
+
+    // make this into enumerated version, combine selectOption and selectParent into one method
+    public String selectOption(String prompt, List<T> options){
+        System.out.println(prompt);
+        int count = options.size();
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + options.get(i).toString());
+        }
+
+    }
+
+
+
+    // choose a parent from population list
+    public static Person selectParent(String type, List<? extends Person> parentList, Scanner input) {
+        System.out.println("Select a " + type + " from the following list:");
+        int count = parentList.size();
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + parentList.get(i).toString());
+        }
+        int parentIndex = input.nextInt() - 1;
+        Person parent = parentList.get(parentIndex);
+        System.out.println(
+                "Great! You selected " + parent.getFirstName() + " " + parent.getLastName() + " as the " + type + " .");
+        System.out.println("--------------------------------------------------------");
+        input.nextLine();
+        return parent;
+    }
+
+
 
     public String name(String prompt, String[] options){
         String name = traitPrompter.consolePrompter.askArray(prompt, options);
